@@ -1,0 +1,29 @@
+<div class="container mt-4">
+    <div class="d-flex justify-content-center card-body">
+        <table class="table table-hover table-bordered table-responsive">
+            <thead>
+              <tr class="bg-dark text-white">
+                <th scope="col" >{{'Id'}}</th>
+                <th scope="col" >{{'Post Name'}}</th>
+                <th scope="col" >{{'Description'}}</th>
+                <th scope="col" >{{'Date'}}</th>
+                <th scope="col">{{'Dction'}}</th>
+              </tr>
+            </thead>
+            <tbody >
+              <tr   *ngFor="let i of posts">
+                <th scope="row">{{i.id}}</th>
+                <!-- i.name ? i.name?.length<12 : i.name.substr(0, 12)+"..." -->
+                <td style="font-weight: bold;" [ngClass]=" i.priority ? 'text-success' : ''">{{i.name.length<16 ? i.name : i.name.substr(0, 12)+"..."}}</td>
+                <td>{{i.description}}</td>
+                <td>{{i.date | date:'LL/mm/yyyy'}}</td>
+                <td style="width: 150px;"><button  class="btn btn-light me-2" data-toggle="modal" data-target="#exampleModal" ><span class="material-symbols-outlined">
+                  edit
+                  </span></button><button  class="btn btn-light"><span class="material-symbols-outlined">
+                  delete
+                  </span></button></td>
+              </tr>             
+            </tbody>
+          </table>
+    </div>
+</div>
